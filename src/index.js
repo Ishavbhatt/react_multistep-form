@@ -14,7 +14,7 @@ export default class Index extends React.Component {
     super(props);
     this.state = {
       data: [],
-      active: "default",
+      active: "stepfirst",
       username: "",
       email: "",
       password: "",
@@ -28,6 +28,7 @@ export default class Index extends React.Component {
 
   // HandleName
   handleNamechange = event => {
+    console.log(event);
     this.setState({ username: event.target.value });
   };
 
@@ -75,7 +76,7 @@ export default class Index extends React.Component {
   renderPages = () => {
     console.log(this.state.active);
     switch (this.state.active) {
-      case "default":
+      case "stepfirst":
         return (
           <Stepfirst
             onChange={this.handleNamechange}

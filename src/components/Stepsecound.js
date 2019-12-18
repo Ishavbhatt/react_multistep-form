@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/style.css";
 
+import { MdDone } from "react-icons/md";
+
 export default function Stepsecound(props) {
   return (
     <div className="stepone-div">
@@ -10,7 +12,9 @@ export default function Stepsecound(props) {
       </div>
       <div className="information">
         <div className="account-information">
-          <span className="oneimg">1</span>
+          <span className="oneimg">
+            <MdDone />
+          </span>
           <h3 className="account">Account Information</h3>
         </div>
         <div className="account-information">
@@ -40,13 +44,27 @@ export default function Stepsecound(props) {
             <label>
               Country:
               <select
-                className="inputform"
+                className="inputform input-select"
                 name="country"
                 value={props.country}
                 onChange={props.handleCountrychange}
               >
                 <option value="india">India</option>
                 <option value="japan">Japan</option>
+              </select>
+            </label>
+          </div>
+          <div className="formpadding">
+            <label>
+              Gender:
+              <select
+                className="inputform input-select"
+                name="country"
+                value={props.gender}
+                onChange={props.handleCountrychange}
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
               </select>
             </label>
           </div>
@@ -62,23 +80,12 @@ export default function Stepsecound(props) {
               />
             </label>
           </div>
-          <div className="formpadding">
-            <label>
-              Gender:
-              <input
-                className="inputform"
-                name="gender"
-                value={props.gender}
-                onChange={props.handleGenderchange}
-              />
-            </label>
-          </div>
         </form>
       </div>
       <hr></hr>
       <div className="stepone-footer">
         <div>
-          <p className="Steponeof-three">Step 1 of 3</p>
+          <p className="Steponeof-three">Step 2 of 3</p>
         </div>
         <div>
           <a href="">cancel</a>

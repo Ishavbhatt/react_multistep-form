@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/style.css";
 
+import { MdDone } from "react-icons/md";
+import { FaCcVisa, FaCcMastercard, FaCcPaypal } from "react-icons/fa";
+
 export default function Stepthird(props) {
   return (
     <div className="stepone-div">
@@ -12,11 +15,15 @@ export default function Stepthird(props) {
       <div>
         <div className="information">
           <div className="account-information">
-            <span className="oneimg">1</span>
+            <span className="oneimg">
+              <MdDone />
+            </span>
             <h3 className="account">Account Information</h3>
           </div>
           <div className="account-information">
-            <span className="oneimg">2</span>
+            <span className="oneimg">
+              <MdDone />
+            </span>
             <h3 className="account">Personal Information</h3>
           </div>
           <div className="account-information">
@@ -26,12 +33,20 @@ export default function Stepthird(props) {
         </div>
         <div>
           <form className="form">
-            {/* <div className="formpadding">
+            <div className="formpadding">
               <label>
                 Payment Type
-                <input className="inputform" name="payment" type="text" />
+                <button className="inputform">
+                  <FaCcVisa />
+                </button>
+                <button className="inputform">
+                  <FaCcMastercard />
+                </button>
+                <button className="inputform">
+                  <FaCcPaypal />
+                </button>
               </label>
-            </div> */}
+            </div>
             <div className="formpadding">
               <label>
                 Credit Card:
@@ -39,9 +54,33 @@ export default function Stepthird(props) {
               </label>
             </div>
             <div className="formpadding">
-              <label>Expiration Date:</label>
+              <label>
+                Expiration Date:
+                <input
+                  className="inputform"
+                  name="expirationdate"
+                  type="number"
+                />
+              </label>
+            </div>
+            <div className="formpadding">
+              <label>
+                Name Of Card:
+                <input className="inputform" name="cardname" type="text" />
+              </label>
             </div>
           </form>
+        </div>
+        <hr />
+      </div>
+      <div className="stepone-footer">
+        <div>
+          <button className="nextstep-button">Submit</button>
+        </div>
+
+        <div>
+          By Submitting this form, you agree with our
+          <a href=""> Terms and Condition</a>
         </div>
       </div>
     </div>

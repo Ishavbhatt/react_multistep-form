@@ -64,7 +64,7 @@ export default function Stepfirst(props) {
             <label>
               Select Avatar:
               <input
-                className="inputform"
+                className="inputform input-file"
                 name="avatar"
                 type="file"
                 value={props.avatar}
