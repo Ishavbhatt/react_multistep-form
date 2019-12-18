@@ -32,7 +32,7 @@ export default function Stepfirst(props) {
                 name="username"
                 type="text"
                 value={props.username}
-                onChange={props.handleNamechange}
+                onChange={props.handleChange}
               />
             </label>
           </div>
@@ -44,7 +44,7 @@ export default function Stepfirst(props) {
                 name="email"
                 type="email"
                 value={props.email}
-                onChange={props.handleEmailchange}
+                onChange={props.handleChange}
               />
             </label>
           </div>
@@ -56,7 +56,7 @@ export default function Stepfirst(props) {
                 name="password"
                 type="password"
                 value={props.password}
-                onChange={props.handlePasswordchange}
+                onChange={props.handleChange}
               />
             </label>
           </div>
@@ -68,7 +68,7 @@ export default function Stepfirst(props) {
                 name="avatar"
                 type="file"
                 value={props.avatar}
-                onChange={props.handleAvatarchange}
+                onChange={props.handleChange}
               />
             </label>
           </div>

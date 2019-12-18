@@ -36,7 +36,7 @@ export default function Stepsecound(props) {
                 name="fullname"
                 type="text"
                 value={props.fullname}
-                onChange={props.handleFullnamechange}
+                onChange={props.handleChange}
               />
             </label>
           </div>
@@ -47,7 +47,7 @@ export default function Stepsecound(props) {
                 className="inputform input-select"
                 name="country"
                 value={props.country}
-                onChange={props.handleCountrychange}
+                onChange={props.handleChange}
               >
                 <option value="india">India</option>
                 <option value="japan">Japan</option>
@@ -61,7 +61,7 @@ export default function Stepsecound(props) {
                 className="inputform input-select"
                 name="country"
                 value={props.gender}
-                onChange={props.handleCountrychange}
+                onChange={props.handleChange}
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -76,7 +76,7 @@ export default function Stepsecound(props) {
                 name="about"
                 type="textarea"
                 value={props.about}
-                onChange={props.handleAboutchange}
+                onChange={props.handleChange}
               />
             </label>
           </div>
@@ -88,7 +88,9 @@ export default function Stepsecound(props) {
           <p className="Steponeof-three">Step 2 of 3</p>
         </div>
         <div>
-          <a href="">cancel</a>
+          <button className="nextstep-button" onClick={props.previous}>
+            Previous
+          </button>
           <span className="or">or</span>
           <button className="nextstep-button" onClick={props.secoundsubmit}>
             NEXT STEP

@@ -22,45 +22,15 @@ export default class Index extends React.Component {
       fullname: "",
       country: "",
       about: "",
-      gender: ""
+      gender: "",
+      creditcard: "",
+      expirationdate: "",
+      cardname: ""
     };
   }
 
-  // HandleName
-  handleNamechange = event => {
-    console.log(event);
-    this.setState({ username: event.target.value });
-  };
-
-  // HandleName
-  handleEmailchange = event => {
-    this.setState({ email: event.target.value });
-  };
-
-  // HandleName
-  handlePasswordchange = event => {
-    this.setState({ password: event.target.value });
-  };
-
-  // HandleName
-  handleAvatarchange = event => {
-    this.setState({ avatar: event.target.value });
-  };
-
-  handleFullnamechange = event => {
-    this.setState({ fullname: event.target.value });
-  };
-
-  handleCountrychange = event => {
-    this.setState({ country: event.target.value });
-  };
-
-  handleAboutchange = event => {
-    this.setState({ about: event.target.value });
-  };
-
-  handleGenderchange = event => {
-    this.setState({ gender: event.target.value });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   // step first next button
@@ -73,16 +43,18 @@ export default class Index extends React.Component {
     this.setState({ active: "stepthird" });
   };
 
+  handleprevious = event => {
+    console.log("running");
+    this.setState({ active: "previousone" });
+  };
+
   renderPages = () => {
     console.log(this.state.active);
     switch (this.state.active) {
       case "stepfirst":
         return (
           <Stepfirst
-            onChange={this.handleNamechange}
-            onChange={this.handleEmailchange}
-            onChange={this.handlePasswordchange}
-            onChange={this.handleAvatarchange}
+            onChange={this.handleChange}
             firstsubmit={this.handleFirstSubmit}
           />
         );
@@ -90,20 +62,35 @@ export default class Index extends React.Component {
       case "stepsecound":
         return (
           <Stepsecound
-            onChange={this.handleFullnamechange}
-            onChange={this.handleCountrychange}
-            onChange={this.handleAboutchange}
-            onChange={this.handleGenderchange}
+            onChange={this.handleChange}
             secoundsubmit={this.handleSecoundSubmit}
+            previous={this.handleprevious}
           />
         );
       case "stepthird":
-        return <Stepthird />;
+        return <Stepthird onChange={this.handleChange} />;
+    }
+  };
+
+  previouspage = () => {
+    switch (this.state.active) {
+      case "previousone":
+        return (
+          <Stepfirst
+            onChange={this.handleChange}
+            firstsubmit={this.handleFirstSubmit}
+          />
+        );
     }
   };
 
   render() {
-    return <>{this.renderPages()}</>;
+    return (
+      <>
+        {this.renderPages()}
+        {this.previouspage()}
+      </>
+    );
   }
 }
 

@@ -50,7 +50,12 @@ export default function Stepthird(props) {
             <div className="formpadding">
               <label>
                 Credit Card:
-                <input className="inputform" name="creditcard" type="number" />
+                <input
+                  className="inputform"
+                  name="creditcard"
+                  type="number"
+                  onChange={props.handleChange}
+                />
               </label>
             </div>
             <div className="formpadding">
@@ -60,6 +65,7 @@ export default function Stepthird(props) {
                   className="inputform"
                   name="expirationdate"
                   type="number"
+                  onChange={props.handleChange}
                 />
               </label>
             </div>
