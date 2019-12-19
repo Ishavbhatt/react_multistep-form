@@ -29,7 +29,7 @@ export default function Stepsecound(props) {
       <div>
         <form className="form">
           <div className="formpadding">
-            <label>
+            <label htmlFor="fullname">
               Full Name:
               <input
                 className="inputform"
@@ -41,7 +41,7 @@ export default function Stepsecound(props) {
             </label>
           </div>
           <div className="formpadding">
-            <label>
+            <label htmlFor="country">
               Country:
               <select
                 className="inputform input-select"
@@ -55,7 +55,7 @@ export default function Stepsecound(props) {
             </label>
           </div>
           <div className="formpadding">
-            <label>
+            <label htmlFor="gender">
               Gender:
               <select
                 className="inputform input-select"
@@ -69,7 +69,7 @@ export default function Stepsecound(props) {
             </label>
           </div>
           <div className="formpadding">
-            <label>
+            <label htmlFor="about">
               About You:
               <textarea
                 className="inputform"

@@ -25,7 +25,7 @@ export default function Stepfirst(props) {
       <div>
         <form className="form">
           <div className="formpadding">
-            <label>
+            <label htmlFor="username">
               UserName:
               <input
                 className="inputform"
@@ -33,11 +33,15 @@ export default function Stepfirst(props) {
                 type="text"
                 value={props.username}
                 onChange={props.handleChange}
+                noValidate
               />
+              {/* {errors.username.length > 0 && (
+                <span className="error">{errors.username}</span>
+              )} */}
             </label>
           </div>
           <div className="formpadding">
-            <label>
+            <label htmlFor="email">
               Email:
               <input
                 className="inputform"
@@ -45,11 +49,15 @@ export default function Stepfirst(props) {
                 type="email"
                 value={props.email}
                 onChange={props.handleChange}
+                noValidate
               />
+              {/* {errors.email.length > 0 && (
+                <span className="error">{errors.email}</span>
+              )} */}
             </label>
           </div>
           <div className="formpadding">
-            <label>
+            <label htmlFor="password">
               Password:
               <input
                 className="inputform"
@@ -57,11 +65,15 @@ export default function Stepfirst(props) {
                 type="password"
                 value={props.password}
                 onChange={props.handleChange}
+                noValidate
               />
+              {/* {errors.password.length > 0 && (
+                <span className="error">{errors.password}</span>
+              )} */}
             </label>
           </div>
           <div className="formpadding">
-            <label>
+            <label htmlFor="file">
               Select Avatar:
               <input
                 className="inputform input-file"

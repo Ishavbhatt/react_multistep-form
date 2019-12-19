@@ -9,6 +9,16 @@ import Stepsecound from "./components/Stepsecound";
 import Stepfirst from "./components/Stepfirst";
 import Stepthird from "./components/Stepthird";
 
+const validEmailRegex = RegExp(
+  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
+
+const validateForm = errors => {
+  let valid = true;
+  Object.values(errors).forEach(val => val.length > 0 && (valid = false));
+  return valid;
+};
+
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +35,12 @@ export default class Index extends React.Component {
       gender: "",
       creditcard: "",
       expirationdate: "",
-      cardname: ""
+      cardname: "",
+      errors: {
+        username: "",
+        email: "",
+        password: ""
+      }
     };
   }
 
@@ -33,19 +48,62 @@ export default class Index extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  // handleChange = event => {
+  //   event.preventDefault();
+  //   const { name, value } = event.target;
+  //   let errors = this.state.errors;
+
+  //   switch (name) {
+  //     case "username":
+  //       errors.username =
+  //         value.length < 5 ? "User Name must be 5 characters long!" : "";
+  //       break;
+  //     case "email":
+  //       errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
+  //       break;
+  //     case "password":
+  //       errors.password =
+  //         value.length < 8 ? "Password must be 8 characters long!" : "";
+  //       break;
+  //     default:
+  //       break;
+  //   }
+
+  //   this.setState({ errors, [name]: value });
+  // };
+
   // step first next button
   handleFirstSubmit = event => {
     this.setState({ active: "stepsecound" });
   };
+
+  // handleFirstSubmit = event => {
+  //   event.preventDefault();
+  //   if (validateForm(this.state.errors)) {
+  //     console.info("Valid Form");
+  //   } else {
+  //     console.error("Invalid Form");
+  //   }
+  // };
 
   // step secound next button
   handleSecoundSubmit = event => {
     this.setState({ active: "stepthird" });
   };
 
+  // Step third submit button
+  handleLastSubmit = event => {
+    alert("Your Account is created Successfully");
+  };
+
+  // Handle Previous Buttons
   handleprevious = event => {
-    console.log("running");
     this.setState({ active: "previousone" });
+    event.preventDefault();
+  };
+
+  handlelastprevious = event => {
+    this.setState({ active: "previous2page" });
   };
 
   renderPages = () => {
@@ -68,7 +126,13 @@ export default class Index extends React.Component {
           />
         );
       case "stepthird":
-        return <Stepthird onChange={this.handleChange} />;
+        return (
+          <Stepthird
+            onChange={this.handleChange}
+            previousthird={this.handlelastprevious}
+            lastsubmit={this.handleLastSubmit}
+          />
+        );
     }
   };
 
@@ -79,6 +143,14 @@ export default class Index extends React.Component {
           <Stepfirst
             onChange={this.handleChange}
             firstsubmit={this.handleFirstSubmit}
+          />
+        );
+      case "previous2page":
+        return (
+          <Stepsecound
+            onChange={this.handleChange}
+            secoundsubmit={this.handleSecoundSubmit}
+            previous={this.handleprevious}
           />
         );
     }

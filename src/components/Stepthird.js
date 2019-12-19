@@ -48,7 +48,7 @@ export default function Stepthird(props) {
               </label>
             </div>
             <div className="formpadding">
-              <label>
+              <label htmlFor="creditcard">
                 Credit Card:
                 <input
                   className="inputform"
@@ -59,7 +59,7 @@ export default function Stepthird(props) {
               </label>
             </div>
             <div className="formpadding">
-              <label>
+              <label htmlFor="expirationdate">
                 Expiration Date:
                 <input
                   className="inputform"
@@ -70,7 +70,7 @@ export default function Stepthird(props) {
               </label>
             </div>
             <div className="formpadding">
-              <label>
+              <label htmlFor="cardname">
                 Name Of Card:
                 <input className="inputform" name="cardname" type="text" />
               </label>
@@ -81,13 +81,19 @@ export default function Stepthird(props) {
       </div>
       <div className="stepone-footer">
         <div>
-          <button className="nextstep-button">Submit</button>
+          <button className="nextstep-button" onClick={props.previousthird}>
+            Previous
+          </button>
         </div>
-
         <div>
-          By Submitting this form, you agree with our
-          <a href=""> Terms and Condition</a>
+          <button className="nextstep-button" onClick={props.lastsubmit}>
+            Submit
+          </button>
         </div>
+      </div>
+      <div className="termscond">
+        By Submitting this form, you agree with our
+        <a href=""> Terms and Condition</a>
       </div>
     </div>
   );
